@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="men.css">
+    <script>
+    let panier = [];
+        let totalPanier = 0;
+        
+        function ajouterAuPanier(nomProduit, prixProduit) {
+            panier.push({ nom: nomProduit, prix: prixProduit });
+            totalPanier += prixProduit;
+            mettreAJourPanier();
+        }
+        
+        function afficherPanier() {
+            document.getElementById('panierModal').style.display = 'block';
+            mettreAJourPanier();
+        }
+        
+        function fermerPanier() {
+            document.getElementById('panierModal').style.display = 'none';
+        }
+        
+        function mettreAJourPanier() {
+            const listeProduitsPanier = document.getElementById('listeProduitsPanier');
+            const totalPanierElement = document.getElementById('totalPanier');
+        
+            listeProduitsPanier.innerHTML = '';
+            panier.forEach(produit => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${produit.nom} - $${produit.prix}`;
+                listeProduitsPanier.appendChild(listItem);
+            });
+        
+            totalPanierElement.textContent = totalPanier;
+        }
+        
+        function passerCommande() {
+            
+            alert('Redirection vers la page de commande...');
+         
+        }</SCript>
+</head>
+
+    
+
+
+<body>
+
+    <header>
+        
+
+        <nav>
+            <div class="nv">
+                <ul>
+                    <li><a href="home1.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Collection</a>
+                        <div class="dropdown-content">
+                            <a href="MEN.html">MEN</a>
+                            <a href="WOMEN.html">WOMEN</a>
+                        </div>
+                    </li>
+                    <li>
+                        <h1 class="titre">ME&YOU</h1>
+                    </li>
+                    <li><a href="../contact.html">Contactez-nous</a></li>
+                    <li><a href="OFFERS.html">Our Offers</a></li>
+                   
+                </ul>
+            </div>
+        </nav>
+        <button onclick="afficherPanier()" class="panier"><img src="image/cart-add-regular-24.png"
+            alt=""> </button>
+    </header>
+    <video src="image/formen.mp4" autoplay muted loop height="700px" width="100%"></video>
+    <div class="product-container">
+        <div class="product" >
+            <img src="image/t1m.png" alt="Product 1">
+            <h3>Sweatshirt with printed logo</h3>
+            <br>
+            <p>Price: $49.99</p>
+<br>
+            <button onclick="ajouterAuPanier('Sweatshirt with printed logo', 49.99)"><img src="image/cart-add-regular-24.png" alt=""></button>
+        </div>
+       
+        <div class="product">
+            <img src="image/tpm2.png" alt="Product 2">
+            <div class="product-details">
+                <h3>Balanciaga </h3>
+                <br>
+                
+                <p>Price: $79.99</p>
+                <br>
+                <button onclick="ajouterAuPanier('Balanciaga ', 79.99)"><img src="image/cart-add-regular-24.png" alt=""> </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="image/tpm3.png" alt="Product 3">
+            <div class="product-details">
+                <h3>Silk shirt with flowers</h3>
+                <br>
+                <p>Price: $99.99</p>
+                <br>
+                <button onclick="ajouterAuPanier('Silk shirt ', 99.99)"><img src="image/cart-add-regular-24.png" alt=""> </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="image/tpm5.png" alt="Product 4">
+            <div class="product-details">
+                <h3>DG Essentials Quilted Vest with Logo Plate</h3>
+                <p>Price: $129.99</p>
+                <br>
+                <button onclick="ajouterAuPanier('Vest', 129.99)"><img src="image/cart-add-regular-24.png" alt=""> </button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/tpm6.png" alt="Product 4">
+            <div class="product-details">
+                <h3>Bomber jacket with striped details</h3>
+                <p>Price: $129.99</p>
+                <br>
+                <button onclick="ajouterAuPanier('Bomber jacket', 129.99)"><img src="image/cart-add-regular-24.png" alt=""> </button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/tpm7.png" alt="Product 4">
+            <div class="product-details">
+                <h3>Bomber jacket with color block design</h3>
+                <p>Price: $129.99</p>
+                <br>
+                <button onclick="ajouterAuPanier('jacket with color block', 129.99)"><img src="image/cart-add-regular-24.png" alt=""> </button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/tpm8.png" alt="Product 4">
+            <div class="product-details">
+                <h3>Crop-cut teddy jacket</h3>
+                <br>
+                <p>Price: $129.99</p>
+                <br>
+                <button onclick="ajouterAuPanier('Crop-cut', 129.99)"><img src="image/cart-add-regular-24.png" alt=""> </button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/tpm9.png" alt="Product 4">
+            <div class="product-details">
+               
+                <h3>Jacket with logo patch</h3>
+<br>
+                <p>Price: $129.99</p>
+                <br>
+                <button onclick="ajouterAuPanier('Jacketpatch', 129.99)"><img src="image/cart-add-regular-24.png" alt=""> </button>
+            </div>
+        </div>
+       
+    </div>
+    <div id="panierModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fermerPanier()">&times;</span>
+            <h2>Panier</h2>
+            <ul id="listeProduitsPanier"></ul><br>
+            <p>Total: $<span id="totalPanier">0</span></p>
+        
+            <button onclick="passerCommande()"> <a href="commander.html"> Order</a></button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li class="list"><a href="#">about us</a></li>
+                        <li class="list"><a href="#">our services</a></li>
+                        <li class="list"><a href="#">privacy policy</a></li>
+                        <li class="list"><a href="../login.html">admin account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li class="list1"><a href="#">FAQ</a></li>
+                        <li class="list1"><a href="#">shipping</a></li>
+                        <li class="list1"><a href="#">returns</a></li>
+                        <li class="list1"><a href="#">order status</a></li>
+                        <li class="list1"><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li class="list2"><a href="#">watch</a></li>
+                        <li class="list2"><a href="#">bag</a></li>
+                        <li class="list2"><a href="#">shoes</a></li>
+                        <li class="list2"><a href="#">dress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i><img src="image/facebook-logo-24.png" alt=""></a>
+                        <a href="#"><i class="fab fa-twitter"></i><img src="image/twitter-logo-24.png" alt=""></a>
+                        <a href="#"><i class="fab fa-instagram"></i><img src="image/instagram-logo-24.png" alt=""></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i><img src="image/linkedin-logo-24.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

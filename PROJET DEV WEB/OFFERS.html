@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=her, initial-scale=1.0">
+    <title>ME & YOU</title>
+    <link rel="stylesheet" href="OFFERS.CSS">
+    <script>
+      let panier = [];
+  let totalPanier = 0;
+  
+  function ajouterAuPanier(nomProduit, prixProduit) {
+      panier.push({ nom: nomProduit, prix: prixProduit });
+      totalPanier += prixProduit;
+      mettreAJourPanier();
+  }
+  
+  function afficherPanier() {
+      document.getElementById('panierModal').style.display = 'block';
+      mettreAJourPanier();
+  }
+  
+  function fermerPanier() {
+      document.getElementById('panierModal').style.display = 'none';
+  }
+  
+  function mettreAJourPanier() {
+      const listeProduitsPanier = document.getElementById('listeProduitsPanier');
+      const totalPanierElement = document.getElementById('totalPanier');
+  
+      listeProduitsPanier.innerHTML = '';
+      panier.forEach(produit => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${produit.nom} - $${produit.prix}`;
+          listeProduitsPanier.appendChild(listItem);
+      });
+  
+      totalPanierElement.textContent = totalPanier;
+  }
+  
+  function passerCommande() {
+      
+      alert('Redirecting to the order page...');
+    
+  }
+  </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nv">
+              <ul>
+                <li><a href="home1.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Collection</a>
+                    <div class="dropdown-content">
+                        <a href="MEN.html">MEN</a>
+                        <a href="WOMEN.html">WOMEN</a>
+                    </div>
+                </li>
+                <li>
+                    <h1 class="titre">ME&YOU</h1>
+                </li>
+                <li><a href="../contact.html">Contactez-nous</a></li>
+                <li><a href="OFFERS.html">Our Offers</a></li>
+               
+            </ul>
+            </div>
+        </nav>
+        <button onclick="afficherPanier()" class="panier"><img src="image/cart-add-regular-24.png"
+          alt=""> </button>
+    </header>
+    <video src="image/ven.mp4" autoplay muted loop height="700px" width="100%"></video>
+        <div class="gallery">
+            <div><img src="image/r1.png" alt="">
+              <P>20$</P>
+              <button onclick="ajouterAuPanier('BAG', 49.99)"><img src="image/cart-add-regular-24.png" alt="">
+              </button>
+            </div>
+    
+            <div><img src="image/r7.png" alt="">
+              <P>15$</P>
+              <button onclick="ajouterAuPanier('skirt', 49.99)"><img src="image/cart-add-regular-24.png" alt="">
+              </button>
+            </div>
+            <div><img src="image/r8.png" alt="">
+              <p>12$</p>
+              <button onclick="ajouterAuPanier('black Dress', 49.99)"><img src="image/cart-add-regular-24.png" alt="">
+              </button>
+            </div>
+            <div><img src="image/r4.png" alt="">
+              <P>19$</P>
+              <button onclick="ajouterAuPanier('Nom du Product', 49.99)"><img src="image/cart-add-regular-24.png" alt="">
+              </button>
+            </div>
+            <div><img src="image/r5.png" alt="">
+              <P>25$</P>
+              <button onclick="ajouterAuPanier('yellow Dress', 49.99)"><img src="image/cart-add-regular-24.png" alt="">
+              </button>
+            </div>
+            <div><img src="image/r6.png" alt="">
+              <P>24$</P>
+              <button onclick="ajouterAuPanier('jillet', 49.99)"><img src="image/cart-add-regular-24.png" alt="">
+              </button>
+            </div>
+        </div>
+        <video src="image/us.mp4" autoplay muted loop height="700px" width="100%"></video>
+        <div class="gallery">
+          <div><img src="image/H1.png" alt="">
+            <p>20$</p>
+            <button onclick="ajouterAuPanier(' Bird', 49.99)" class="mn"><img src="image/cart-add-regular-24.png" alt="">
+            </button>
+          </div>
+  
+          <div><img src="image/H2.png" alt="">
+            <p>20$</p>
+            <button onclick="ajouterAuPanier('Sweatshirt', 49.99)" class="mn"><img src="image/cart-add-regular-24.png" alt="">
+            </button>
+          </div>
+          <div><img src="image/H3.png" alt="">
+            <p>20$</p>
+            <button onclick="ajouterAuPanier('Nom du Product', 49.99)" class="mn"><img src="image/cart-add-regular-24.png" alt="">
+            </button>
+          </div>
+          <div><img src="image/H4.png" alt="">
+            <p>20$</p>
+            <button onclick="ajouterAuPanier('pants', 49.99)" class="mn"><img src="image/cart-add-regular-24.png" alt="">
+            </button>
+          </div>
+          <div><img src="image/H5.png" alt="">
+            <p>20$</p>
+            <button onclick="ajouterAuPanier('Patched Shirt', 49.99)" class="mn"><img src="image/cart-add-regular-24.png" alt="">
+            </button>
+          </div>
+          <div><img src="image/H6.png" alt="">
+            <p>20$</p>
+            <button onclick="ajouterAuPanier('Button Up Shirt', 49.99)" class="mn"><img src="image/cart-add-regular-24.png" alt="">
+            </button>
+          </div>
+      </div>
+      <div class="sli"><img src="image/ofer1.png" alt="" height="400px" width="800px">
+          <p class="para1">Celebrate the arrival of the New Year with our exclusive New Year Sale! 
+            Embrace the spirit of fresh beginnings and treat yourself to incredible discounts 
+            on a wide range of products. From stylish apparel to must-have accessories, 
+            our New Year Sale brings you the perfect opportunity to refresh your wardrobe and 
+            embrace the upcoming year in style. Discover special offers, limited-time deals, 
+            and fantastic savings on your favorite items. Don't miss out on the chance to start 
+            the year on a stylish note. Shop now and make 
+          the most of our New Year Sale – where fashion meets fantastic savings!                       </p>                                       
+        
+        
+        
+        </div>
+        
+        <div id="panierModal" class="modal">
+          <div class="modal-content">
+              <span class="close" onclick="fermerPanier()">&times;</span>
+              <h2>Panier</h2>
+              <ul id="listeProduitsPanier"></ul><br>
+              <p>Total: $<span id="totalPanier">0</span></p>
+          
+              <button onclick="passerCommande()"><a href="commander.html">order</a></button>
+          </div>
+      </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+         <div class="row">
+           <div class="footer-col">
+            <h4>company</h4>
+                    <ul>
+                        <li class="list"><a href="#">about us</a></li>
+                        <li class="list"><a href="#">our services</a></li>
+                        <li class="list"><a href="#">privacy policy</a></li>
+                        <li class="list"><a href="../login.html">admin account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li class="list1"><a href="#">FAQ</a></li>
+                        <li class="list1"><a href="#">shipping</a></li>
+                        <li class="list1"><a href="#">returns</a></li>
+                        <li class="list1"><a href="#">order status</a></li>
+                        <li class="list1"><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li class="list2"><a href="#">watch</a></li>
+                        <li class="list2"><a href="#">bag</a></li>
+                        <li class="list2"><a href="#">shoes</a></li>
+                        <li class="list2"><a href="#">dress</a></li>
+                    </ul>
+                </div>
+           <div class="footer-col">
+             <h4>follow us</h4>
+             <div class="social-links">
+               <a href="#"><i class="fab fa-facebook-f"></i><img src="image/facebook-logo-24.png" alt=""></a>
+               <a href="#"><i class="fab fa-twitter"></i><img src="image/twitter-logo-24.png" alt=""></a>
+               <a href="#"><i class="fab fa-instagram"></i><img src="image/instagram-logo-24.png" alt=""></a>
+               <a href="#"><i class="fab fa-linkedin-in"></i><img src="image/linkedin-logo-24.png" alt=""></a>
+             </div>
+           </div>
+         </div>
+        </div>
+     </footer>
+</body>
+
+</html>

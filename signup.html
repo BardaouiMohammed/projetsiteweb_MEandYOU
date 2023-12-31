@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME & YOU</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img/background.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            padding: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: auto-fit minmax(10px, 1fr);
+            justify-content: center;
+            background-color: transparent;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none; /* Remove default list styling */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            align-items: center; /* Center items vertically */
+        }
+
+        nav ul li {
+            margin-left: 10px;
+            padding-right: 30px;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 5px;
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Added transition property */
+        }
+
+        nav ul li a:hover {
+            background-color: #af9999;
+            color: black;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        nav ul li a:focus,
+        .active {
+            font-size: larger;
+            font-weight: bolder;
+            text-decoration: underline;
+            letter-spacing: 0.2;
+            color: rgb(231, 179, 128);
+            padding: auto;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: #af9999;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .titre {
+            color: rgb(15, 15, 7);
+            font-family: 'Times New Roman', Times, serif;
+            font-family: Verdana;
+            text-shadow: 2px 2px gray;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 2px;
+            margin-top: -5px;
+        }
+
+        .nv {
+            display: inline;
+            justify-content: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        
+        }
+        fieldset{
+            border: 0;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] ,input[type="reset"] {
+            background-color: #f1b16c;
+            color: #fdfbf8;
+            cursor: pointer;
+            margin: 0px 20px 0 0px;
+
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #E4CEB6;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .custom-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            text-align: center;
+        }
+
+        .modal-content {
+            color: #774021; /* Darker brownish-orange */
+        }
+
+        .modal-close {
+            display: inline-block;
+            background-color: #955734; /* Brownish-orange tone */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .modal-close:hover {
+            background-color: #b28554; /* Lighter brownish-orange on hover */
+        }
+
+     
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #E4CEB6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            text-align: center;
+        }
+
+        .custom-alert-content {
+            color: #774021; /* Darker brownish-orange */
+        }
+
+        .custom-alert-close {
+            display: inline-block;
+            background-color: #955734; /* Brownish-orange tone */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .custom-alert-close:hover {
+            background-color: #b28554; 
+        }
+    </style>
+    <script>
+        function showAlert(message) {
+            var customAlert = document.getElementById('customAlert');
+            var customAlertContent = document.getElementById('customAlertContent');
+            customAlertContent.textContent = message;
+            customAlert.style.display = 'block';
+
+            var closeBtn = document.getElementById('customAlertClose');
+            closeBtn.addEventListener('click', function() {
+                customAlert.style.display = 'none';
+            });
+        }
+
+        function verif() {
+            if (document.getElementById("nom").value == "") { 
+                showAlert("Veuillez taper votre nom "); 
+                return false;
+            }
+            if (document.getElementById("prenom").value == "") { 
+                showAlert("Veuillez taper votre prénom"); 
+                return false; 
+            }
+            if (document.getElementById("email").value == "") {
+                showAlert("Veuillez entrer votre adresse e-mail!");
+                return false;
+            }
+            if (document.getElementById("email").value.indexOf('@') == -1) {
+                showAlert("Adresse e-mail incorrecte!");
+                return false;
+            }
+            if (document.getElementById("password").value == "") {
+                showAlert("Veuillez entrer le mot de passe ");
+                return false;
+            }
+            if (document.getElementById("password").value.length < 8) {
+                showAlert("Veuillez donner un mot de passe contenant au moins 8 caractères");
+                return false;
+            }
+            if (document.getElementById("password").value != document.getElementById("passwordconf").value) { 
+                showAlert("Les mots de passe sont différents"); 
+                return false; 
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nv">
+                <ul>
+                    <li><a href="PROJET DEV WEB/home2.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="login.html" class="dropbtn">Collection</a>
+                        <div class="dropdown-content">
+                            <a href="../login.html">MEN</a>
+                            <a href="../login.html">WOMEN</a>
+                        </div>
+                    </li>
+                    <li>
+                        <h1 class="titre">ME&YOU</h1>
+                    </li>
+                    <li><a href="../contact.html">Contactez-nous</a></li>
+                    <li><a href="../login.html">Our Offers</a></li>
+                </ul>
+            
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <form action="signup.php" method="post">
+            <fieldset>
+                <h3 style="color: #fdfbf8;text-align: center; background-color: #f1b16c;border-radius: 12px;">créer votre compte</h3>
+                <div class="log">
+                    <input type="text" id="nom" placeholder="Nom" name="nom" required>
+                </div>
+                <div class="log">
+                    
+                    <input type="text" id="prenom" placeholder="Prénom" name="prenom" required>
+                </div>
+                <div class="log">
+                    
+                    <input type="radio" id="homme" name="sexe" value="homme">
+                    <label for="homme" style="color: #955734;">Homme</label>
+                    <input type="radio" id="femme" name="sexe" value="femme" checked>
+                    <label for="femme" style="color: #955734; list-style-type: circle;">Femme</label>
+                </div>
+                <div class="log">
+                  
+                    <input type="email" id="email" placeholder="Email" name="email" required>
+                </div>
+                <div class="log">
+                    
+                    <input type="tel" id="tele" placeholder="Téléphone" name="tele">
+                </div>
+                <div class="log">
+                   
+                    <input type="password" id="password" placeholder="Mot de passe" name="password" required>
+                </div>
+                <div class="log">
+                    
+                    <input type="password" id="passwordconf" placeholder="Confirmer mot de passe" name="passwordconf"
+                        required>
+                </div>
+                <div class="log">
+                    <input type="submit" id="submit" value="Envoyer" onclick="return verif()">
+                    <input type="reset" id="reset" value="Réinitialiser">
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <div id="customAlert" class="custom-alert">
+        <div id="customAlertContent" class="custom-alert-content"></div>
+        <button id="customAlertClose" class="custom-alert-close">Fermer</button>
+    </div>
+</body>
+</html>

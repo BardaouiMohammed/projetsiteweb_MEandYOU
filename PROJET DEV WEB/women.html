@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="women.css">
+    <script>
+    let panier = [];
+let totalPanier = 0;
+
+function ajouterAuPanier(nomProduit, prixProduit) {
+    panier.push({ nom: nomProduit, prix: prixProduit });
+    totalPanier += prixProduit;
+    mettreAJourPanier();
+}
+
+function afficherPanier() {
+    document.getElementById('panierModal').style.display = 'block';
+    mettreAJourPanier();
+}
+
+function fermerPanier() {
+    document.getElementById('panierModal').style.display = 'none';
+}
+
+function mettreAJourPanier() {
+    const listeProduitsPanier = document.getElementById('listeProduitsPanier');
+    const totalPanierElement = document.getElementById('totalPanier');
+
+    listeProduitsPanier.innerHTML = '';
+    panier.forEach(produit => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${produit.nom} - $${produit.prix}`;
+        listeProduitsPanier.appendChild(listItem);
+    });
+
+    totalPanierElement.textContent = totalPanier;
+}
+
+function passerCommande() {
+    
+    alert('Redirecting to the order page...');
+  
+}
+
+    
+</script>
+    
+ 
+</head>
+
+<body>
+
+    <header>
+       
+
+        <nav>
+            <div class="nv">
+                <ul>
+                    <li><a href="home1.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Collection</a>
+                        <div class="dropdown-content">
+                            <a href="MEN.html">MEN</a>
+                            <a href="WOMEN.html">WOMEN</a>
+                        </div>
+                    </li>
+                    <li>
+                        <h1 class="titre">ME&YOU</h1>
+                    </li>
+                    <li><a href="../contact.html">Contactez-nous</a></li>
+                    <li><a href="OFFERS.html">Our Offers</a></li>
+                   
+                </ul>
+            </div>
+        </nav>
+        <button onclick="afficherPanier()" class="panier"><img src="image/cart-add-regular-24.png"
+            alt=""> </button>
+    </header>
+    <video src="image/covof.mp4" autoplay muted loop height="700px" width="auto"></video>
+    <div class="product-container">
+        <div class="product">
+            <img src="image/pm1.png" alt="Product 1">
+            <h3>Trousers</h3>
+            <p>prix: $49.99</p>
+            <button onclick="ajouterAuPanier('Trousers', 49.99)"><img src="image/cart-add-regular-24.png" alt="">
+            </button>
+        </div>
+
+        <div class="product">
+            <img src="image/1128_wlp_m_c02a_img.jpg" alt="Product 2">
+            <div class="product-details">
+                <h3>Jumpers</h3>
+                <p>prix: $79.99</p>
+                <button onclick="ajouterAuPanier('Jumpers', 79.99)"><img src="image/cart-add-regular-24.png"
+                        alt=""> </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="image/1205_wlp_m_c02e_img.jpg" alt="Product 3">
+            <div class="product-details">
+                <h3>Hand Bag</h3>
+                <p>prix: $99.99</p>
+                <button onclick="ajouterAuPanier('Hand Bag', 99.99)"><img src="image/cart-add-regular-24.png" alt="">
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="image/1128_wlp_m_c02c_img.jpg" alt="Product 4">
+            <div class="product-details">
+                <h3>Jacket</h3>
+                <p>prix: $129.99</p>
+                <button onclick="ajouterAuPanier('Jacket', 129.99)"><img src="image/cart-add-regular-24.png" alt=""></button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/1128_wlp_m_c02b_img.jpg" alt="Product 4">
+            <div class="product-details">
+                <h3>Dress</h3>
+                <p>prix: $129.99</p>
+                <button onclick="ajouterAuPanier('Nom du Product', 129.99)"><img src="image/cart-add-regular-24.png" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/1128_wlp_m_c02f_img.jpg" alt="Product 4">
+            <div class="product-details">
+                <h3>Brown ankle boots</h3>
+                <p>prix: $129.99</p>
+                <button onclick="ajouterAuPanier('Dress', 129.99)"><img src="image/cart-add-regular-24.png" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/tf1.png" alt="Product 4">
+            <div class="product-details">
+                <h3>skirt with a flared cut</h3>
+                <p>prix: $129.99</p>
+                <button onclick="ajouterAuPanier('skirt with a flared cu', 129.99)"><img src="image/cart-add-regular-24.png" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="image/tf2.png" alt="Product 4">
+            <div class="product-details">
+                <h3>Checkered sweater</h3>
+                <p>prix: $129.99</p>
+                <button onclick="ajouterAuPanier('Checkered sweatert', 129.99)"><img src="image/cart-add-regular-24.png" alt="">
+                </button>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <div id="panierModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fermerPanier()">&times;</span>
+            <h2>Panier</h2>
+            <ul id="listeProduitsPanier"></ul><br>
+            <p>Total: $<span id="totalPanier">0</span></p>
+        
+            <button onclick="passerCommande()"> <a href="commander.html">order</a></button>
+        </div>
+    </div>
+    
+    </body>
+    
+    </html>
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li class="list"><a href="#">about us</a></li>
+                        <li class="list"><a href="#">our services</a></li>
+                        <li class="list"><a href="#">privacy policy</a></li>
+                        <li class="list"><a href="../login.html">admin account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li class="list1"><a href="#">FAQ</a></li>
+                        <li class="list1" ><a href="#">shipping</a></li>
+                        <li class="list1" ><a href="#">shipping</a></li>
+                        <li  class="list1"><a href="#">returns</a></li>
+                        <li class="list1"><a href="#">order status</a></li>
+                        <li class="list1"><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li class="list2"><a href="#">watch</a></li>
+                        <li class="list2"><a href="#">bag</a></li>
+                        <li class="list2"><a href="#">shoes</a></li>
+                        <li class="list2"><a href="#">dress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i><img src="image/facebook-logo-24.png" alt=""></a>
+                        <a href="#"><i class="fab fa-twitter"></i><img src="image/twitter-logo-24.png" alt=""></a>
+                        <a href="#"><i class="fab fa-instagram"></i><img src="image/instagram-logo-24.png" alt=""></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i><img src="image/linkedin-logo-24.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
